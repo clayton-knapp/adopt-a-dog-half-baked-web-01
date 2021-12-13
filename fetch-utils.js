@@ -21,7 +21,7 @@ export async function getDog(id) {
         .from('dogs')
         .select()
         .match({ id: id })
-        .single();
+        .single(); //makes it so it just returns the first object, not the whole array
 
     // and return the response (checking for errors)
     return checkError(response);    

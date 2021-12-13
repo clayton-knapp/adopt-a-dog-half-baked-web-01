@@ -15,6 +15,7 @@ export function renderDogCard(dog) {
     //appends the whole div of dog name and image INTO an anchor tag w/ the href set above
     a.append(div);
 
+    //returns the whole anchor tag
     return a;
 }
 
