@@ -5,13 +5,23 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export async function getDogs() {
     // from the dogs table, select all items
+    const response = await client
+    // this is the name of the table made earlier in supabase
+        .from('dogs')
+        .select();
+    // console.log(response.data);
 
     // and return the response (checking for errors)
-    return checkError(response);    
+    return checkError(response); //should this be response.data or response.body - NO don't need to because it runs Check Error which either returns an error or the data
 }
 
 export async function getDog(id) {
     // from the dogs table, select a single dog who has the matching id
+    const response = await client
+        .from('dogs')
+        .select()
+        .match({ id: id })
+        .single(); //makes it so it just returns the first object, not the whole array
 
     // and return the response (checking for errors)
     return checkError(response);    
